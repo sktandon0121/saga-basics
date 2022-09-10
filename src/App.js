@@ -5,6 +5,7 @@ import Count from './component/Count'
 import Books from './component/Books'
 import { increaseCount, decrementCount } from './redux_basics/actions';
 import { AddBook, RemoveBook } from './redux_basics/booksAction';
+import { getUser } from './redux_basics/userAction';
 
 
 const data = { count: 1 }
@@ -30,6 +31,8 @@ function App() {
       <Books />
       <button onClick={() => dispatch(AddBook(book))} >Add a book</button>
       <button onClick={() => dispatch(RemoveBook(book))} >Remove a book</button>
+
+      <button onClick={() => dispatch(getUser())} >Get User</button>
 
     </div>
   );

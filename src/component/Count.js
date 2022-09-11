@@ -1,11 +1,14 @@
 import { useSelector } from 'react-redux'
+import { Row } from 'react-bootstrap'
 
 const Count = () => {
     const res = useSelector((state) => state.countData)
     console.log("redux store data in Count component " + JSON.stringify(res))
-    return <div>
+
+    return <Row>
         <h3>Count : {res.count}</h3>
-    </div>
+    </Row>
+
 }
 
 export default Count;

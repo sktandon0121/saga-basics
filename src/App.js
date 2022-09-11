@@ -6,6 +6,11 @@ import Books from './component/Books'
 import { increaseCount, decrementCount } from './redux_basics/actions';
 import { AddBook, RemoveBook } from './redux_basics/booksAction';
 import { getUser } from './redux_basics/userAction';
+import UserCard from './component/UserCard';
+
+
+import { Container, Row, Col } from 'react-bootstrap';
+
 
 
 const data = { count: 1 }
@@ -23,18 +28,53 @@ function App() {
   const dispatch = useDispatch();
 
   return (
-    <div className="App">
-      <Count />
-      <button onClick={() => dispatch(increaseCount(data))} >Increment Count</button>
-      <button onClick={() => dispatch(decrementCount(data))} >Decrement Count</button>
+    <Container>
 
-      <Books />
-      <button onClick={() => dispatch(AddBook(book))} >Add a book</button>
-      <button onClick={() => dispatch(RemoveBook(book))} >Remove a book</button>
+      <Row>
+        <Count />
+        <Col>
+          <Row>
+            <Col>
+              <button className='btn btn-success' onClick={() => dispatch(increaseCount(data))} >Increment Count</button>
+            </Col>
+            <Col>
+              <button className='btn btn-success' onClick={() => dispatch(decrementCount(data))} >Decrement Count</button>
+            </Col>
+            <Col></Col>
+          </Row>
+        </Col>
 
-      <button onClick={() => dispatch(getUser())} >Get User</button>
 
-    </div>
+        <Books />
+        <Col>
+          <Row>
+            <Col>
+              <button className='btn btn-success' onClick={() => dispatch(AddBook(book))} >Add a book</button>
+            </Col>
+            <Col>
+              <button className='btn btn-success' onClick={() => dispatch(RemoveBook(book))} >Remove a book</button>
+            </Col>
+          </Row>
+        </Col>
+
+        <Col>
+          <Row>
+            <Col>
+              <button className='btn btn-success' onClick={() => dispatch(getUser())} >Get User</button>
+            </Col>
+          </Row>
+        </Col>
+
+
+
+      </Row>
+      <div className='blank-row'></div>
+      <Row>
+        <Col>
+          <UserCard />
+        </Col>
+      </Row>
+    </Container>
   );
 }
 
